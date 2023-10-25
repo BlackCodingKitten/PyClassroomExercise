@@ -1,8 +1,9 @@
 def testEqual(x,y):
+    #esegue il controllo di tipo
     if(type(x) == type(y)):
         if(type(x) == float and type(y) == float):
             #Confronto più acurato per i float
-            if(x-y < (10**-9)):
+            if(abs(x-y) < (10**-9)):
                 return "#Pass"
             else:
                 return "#Expected "+ str(x) + " got "+ str(y)
