@@ -195,36 +195,37 @@ def intersezioneOrdinata(A, B):
             
         
 # Controllo dell'uso delle parentesi:
-def check(string):
-# ()=1 []=2 {}=3
-    t=1
-    q=2
-    g=3
-    close="C"
-    opn = "A"
-    l=[]
-    t=(index,code,m
-# scorro la stringa e salvo le occorrenze delle parentesi   
-    for index in len(string):
-        if string[index]=='(':
-            l.append((index,t,opn))
-        if string[index]=='[':
-            l.append((index,q,opn))
-        if string[index]=='{':
-            l.append((index,g,opn))
-        if string[index]==')':
-            l.append((index,t,close))
-            if (,t,open) not in l:
-                return "non Rispetta le parentesi"
-        if string[index]==']':
-            l.append((index,q,close))
-        if string[index]=='}':
-            l.append((index,g,close))
+def verifica_parentesi(stringa):
+    # stack = []
+    # parentesi_aperte = {'{', '(', '['}
+    # parentesi_chiuse = {'}', ')', ']'}
+    # mappa_parentesi = {')': '(', '}': '{', ']': '['}
 
-    for i in l:
-        if 
-        
-    
+    # for c in stringa:
+    #     if c in parentesi_aperte:
+    #         stack.append(c)
+    #     elif c in parentesi_chiuse:
+    #         if not stack or stack.pop() != mappa_parentesi[c]:
+    #             return False
+
+    # return not stack
+    stack = []
+    parentesi_aperte = {'{', '(', '['}
+    parentesi_chiuse = {'}', ')', ']'}
+
+    for c in stringa:
+        if c in parentesi_aperte:
+            stack.append(c)
+        elif c in parentesi_chiuse:
+            if not stack or (c == '}' and stack[-1] != '{') or (c == ')' and stack[-1] != '(') or (c == ']' and stack[-1] != '['):
+                return False
+            stack.pop()
+
+    return not stack
+
+
+
+  
         
         
 
@@ -292,8 +293,11 @@ def main():
     
     # print(intersezioneOrdinata(A,B))
     
-    
-    
-     
+    input_utente = input("Inserisci una stringa: ")
+    if verifica_parentesi(input_utente):
+        print("La sequenza è corretta.")
+    else:
+        print("La sequenza non è corretta.")
+        
 main()
 

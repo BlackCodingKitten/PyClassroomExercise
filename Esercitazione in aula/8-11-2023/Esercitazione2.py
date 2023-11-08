@@ -56,5 +56,5 @@ def main():
     # max_Float()
     # print(somma())
     # print(mod_2_3())
-    fibonacci(int(input("Inserisci n: ")))
-main()
+    # fibonacci(int(input("Inserisci n: ")))
+# main()
