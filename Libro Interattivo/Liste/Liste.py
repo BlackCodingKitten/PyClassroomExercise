@@ -209,6 +209,7 @@ def verifica_parentesi(stringa):
     #             return False
 
     # return not stack
+    
     stack = []
     parentesi_aperte = {'{', '(', '['}
     parentesi_chiuse = {'}', ')', ']'}
